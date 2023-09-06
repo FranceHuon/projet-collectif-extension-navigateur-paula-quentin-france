@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Day By Day",
+    "version": "1.0",
+    "description": "Birthdays Calendar",
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "action": {
+        "default_popup": "main.html",
+        "default_icon": {
+            "128": "img/128.png"
+        }
+    },
+    "icons": {
+        "128": "img/128.png"
+    }
+}

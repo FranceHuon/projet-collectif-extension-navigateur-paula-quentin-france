@@ -50,8 +50,7 @@ async function getBirthdays() {
     if (getBirthdayMonth(i) === monthActual) {
       birthdayDiv = document.createElement("div"); // Create div
       document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-      birthdayDiv.innerHTML =
-        "C'est l'anniversaire de " + data[i]["name"] + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
+      birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
     }
   }
 }

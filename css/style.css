@@ -1,13 +1,15 @@
-
 body {
-    width: 20em;
-    height: 20em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20em;
+  height: 20em;
+  background-color: #f2d6de;
 }
 
-.anniversaire {
+/* .anniversaire {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,19 +17,36 @@ body {
     margin: 10px;
     font-family: arial, serif;
     font-weight: 400;
-    font-size: 0.875em;
-}
+    font-size: 0.875em; */
+/* } */
 
 h1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20em;
-    height: 20em;
-    margin: 0.625em;
-    font-family: Impact, serif;
-    font-weight: 600;
-    font-size: 2.5em;
-    color: rgb(273, 72, 50);
-    background-color: rgb(248, 217, 209);
+  color: #0f4d2a;
+  font-family: Impact, serif;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  margin: 0.625em;
 }
+
+h2 {
+  margin: 0.313em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #0f4d2a;
+  border-bottom: 0.031em solid;
+}
+
+#intro {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f4d2a;
+}
+
+/* button {
+  width: 0;
+  height: 0;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 20px solid #e888a3;
+} */

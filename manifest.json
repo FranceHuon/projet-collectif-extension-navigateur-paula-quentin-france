@@ -7,7 +7,7 @@
         "service_worker": "js/background.js"
     },
     "action": {
-        "default_popup": "main.html",
+        "default_popup": "popup.html",
         "default_icon": {
             "128": "img/128.png"
         }

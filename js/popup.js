@@ -22,7 +22,7 @@ let monthOfTheYear = {
   12: "Décembre",
 };
 
-//Enter the asynchronous function to extract data from the API
+// Enter the asynchronous function to extract data from the API
 
 async function getBirthdays() {
   const response = await fetch(supaBaseURL, {
@@ -147,3 +147,44 @@ async function getBirthdays() {
 }
 
 getBirthdays();
+
+//------------------------------------------- Second API---------------------------------------------------------
+const apiKey2 = "pKGo3gtGvxbS06C39uchqA==oAIvCQ0AmA5bbnRE";
+
+const dayActual = new Date().getDate();
+const actualMonth = new Date().getMonth() + 1;
+let randomYear = generateRandomDate(1800, 2022);
+console.log(randomYear);
+
+async function history() {
+  const response = await fetch(
+    "https://api.api-ninjas.com/v1/historicalevents?day=" +
+      dayActual +
+      "&month=" +
+      actualMonth +
+      "&year=" +
+      randomYear,
+    {
+      method: "GET",
+      headers: {
+        "content-Type": "application/json",
+        "X-Api-Key": apiKey2,
+      },
+    }
+  );
+  const myJson = await response.json();
+  console.log(myJson);
+  console.log(myJson.length);
+  let i =0
+  do { generateRandomDate();
+    i++;
+}
+while (i=myJson.length)
+
+history();
+
+// fonction pour générer une date random
+function generateRandomDate(min, max) {
+  let randomDate = Math.random() * (max - min) + min;
+  return parseInt(randomDate);
+}}

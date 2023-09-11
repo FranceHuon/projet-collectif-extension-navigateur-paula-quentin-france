@@ -154,8 +154,6 @@ const apiKey2 = "pKGo3gtGvxbS06C39uchqA==oAIvCQ0AmA5bbnRE";
 const dayActual = new Date().getDate();
 const actualMonth = new Date().getMonth() + 1;
 let randomId = generateRandomId(1, 10);
-console.log(randomId);
-// console.log(randomYear);
 
 async function history() {
   const response = await fetch(
@@ -174,13 +172,10 @@ async function history() {
     }
   );
   const myJson = await response.json();
-  console.log(myJson[randomId]);
 
   let oneObject = myJson[randomId];
-  console.log(oneObject);
 
   let test = oneObject["event"];
-  console.log(test);
 
   document.querySelector("#historicalFact").innerHTML = test;
 }

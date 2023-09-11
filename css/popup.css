@@ -39,6 +39,24 @@ h2 {
   color: #0f4d2a;
 }
 
+#historicalContainer{
+  margin-top: 15px;
+}
+
+main {
+  
+}
+/* h3 {
+  letter-spacing: 0;
+  margin: 0;
+  padding-bottom: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #0f4d2a;
+} */
+
 .underline-box {
   padding : 0.5px;
   border-bottom: 1px solid black;

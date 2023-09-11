@@ -153,17 +153,18 @@ const apiKey2 = "pKGo3gtGvxbS06C39uchqA==oAIvCQ0AmA5bbnRE";
 
 const dayActual = new Date().getDate();
 const actualMonth = new Date().getMonth() + 1;
-let randomYear = generateRandomDate(1800, 2022);
-console.log(randomYear);
+let randomId = generateRandomId(1, 10);
+console.log(randomId);
+// console.log(randomYear);
 
 async function history() {
   const response = await fetch(
     "https://api.api-ninjas.com/v1/historicalevents?day=" +
       dayActual +
       "&month=" +
-      actualMonth +
-      "&year=" +
-      randomYear,
+      actualMonth, // +
+    // "&year=" +
+    // randomYear,
     {
       method: "GET",
       headers: {
@@ -173,18 +174,22 @@ async function history() {
     }
   );
   const myJson = await response.json();
-  console.log(myJson);
-  console.log(myJson.length);
-  let i =0
-  do { generateRandomDate();
-    i++;
+  console.log(myJson[randomId]);
+
+  let oneObject = myJson[randomId];
+  console.log(oneObject);
+
+  let test = oneObject["event"];
+  console.log(test);
+
+  document.querySelector("#historicalFact").innerHTML = test;
 }
-while (i=myJson.length)
+
+// fonction pour generer un nombre aléatoire
+
+function generateRandomId(min, max) {
+  let randomNumber = Math.random() * (max - min) + min;
+  return parseInt(randomNumber);
+}
 
 history();
-
-// fonction pour générer une date random
-function generateRandomDate(min, max) {
-  let randomDate = Math.random() * (max - min) + min;
-  return parseInt(randomDate);
-}}

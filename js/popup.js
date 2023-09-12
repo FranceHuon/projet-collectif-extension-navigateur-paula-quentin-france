@@ -33,6 +33,14 @@ async function getBirthdays() {
   });
   const data = await response.json(); // constant data includes API data
 
+  let tabData = [];
+
+  for (let i = 0; i < data.length; i++) {
+    tabData.push(data[i]);
+  }
+
+  console.log(tabData);
+
   // variable to have the current month in number
 
   let monthActual = new Date().getMonth() + 1;
@@ -67,16 +75,22 @@ async function getBirthdays() {
   function nextMonthBirthday() {
     let birthdayDiv;
     monthActual++;
-    if (monthActual > 1 && monthActual < 12) {
-      for (let i = 0; i < data.length; i++) {
-        if (getBirthdayMonth(i) === monthActual) {
-          birthdayDiv = document.createElement("div"); // Create div
-          document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-          birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
-        }
-      }
-    } else if (limitMonthNext(monthActual) == false) {
+    let counter = 0;
+    if (limitMonthNext(monthActual) == false) {
       monthActual = 1;
+    }
+    for (let i = 0; i < data.length; i++) {
+      if (getBirthdayMonth(i) === monthActual) {
+        counter++;
+        birthdayDiv = document.createElement("div"); // Create div
+        document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
+        birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
+      }
+    }
+    if (counter === 0) {
+      birthdayDiv = document.createElement("div"); // Create div
+      document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
+      birthdayDiv.innerHTML = "Pas d'anniversaire à souhaiter"; //we write in the div the text with the values that we get out of the loop
     }
   }
 
@@ -105,16 +119,22 @@ async function getBirthdays() {
   function previousMonthBirthday() {
     let birthdayDiv;
     monthActual--;
-    if (monthActual > 1 && monthActual < 12) {
-      for (let i = 0; i < data.length; i++) {
-        if (getBirthdayMonth(i) === monthActual) {
-          birthdayDiv = document.createElement("div"); // Create div
-          document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-          birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
-        }
-      }
-    } else if (LimitMonthPrevious(monthActual) == false) {
+    let counter = 0;
+    if (LimitMonthPrevious(monthActual) == false) {
       monthActual = 12;
+    }
+    for (let i = 0; i < data.length; i++) {
+      if (getBirthdayMonth(i) === monthActual) {
+        counter++;
+        birthdayDiv = document.createElement("div"); // Create div
+        document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
+        birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
+      }
+    }
+    if (counter === 0) {
+      birthdayDiv = document.createElement("div"); // Create div
+      document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
+      birthdayDiv.innerHTML = "Pas d'anniversaire à souhaiter"; //we write in the div the text with the values that we get out of the loop
     }
   }
 

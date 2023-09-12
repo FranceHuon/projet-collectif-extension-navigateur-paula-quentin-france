@@ -20,6 +20,7 @@ body {
     font-size: 0.875em; */
 /* } */
 
+
 h1 {
   color: #0f4d2a;
   font-family: Impact, serif;
@@ -27,6 +28,7 @@ h1 {
   font-size: 2.5em;
   margin: 0.625em;
   letter-spacing: 0.08em;
+  margin-bottom: 0.2em;
 }
 
 h2 {
@@ -39,8 +41,12 @@ h2 {
   color: #0f4d2a;
 }
 
+/* .birthday {
+  
+} */
+
 #historicalContainer {
-  margin-top: 15px;
+  margin-top: 1.25em;
 }
 
 main {
@@ -49,6 +55,8 @@ main {
 
 #mainContainer {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .buttonSearch {
@@ -56,7 +64,9 @@ main {
 }
 
 #previous {
+  cursor: pointer;
   margin: 0.8em;
+  margin-left: 0;
   padding: 0.5em;
   background-color: #f2d6de;
   border-color: #f2d6de;
@@ -65,7 +75,9 @@ main {
 }
 
 #next {
+  cursor: pointer;
   margin: 0.8em;
+  margin-right: 0;
   padding: 0.5em;
   background-color: #f2d6de;
   border-color: #f2d6de;
@@ -107,4 +119,46 @@ main {
   border-top: 16px solid transparent;
   border-bottom: 16px solid transparent;
   border-left: 20px solid #e888a3;
+} */
+footer p {
+  font-size: 0.8em;
+  text-align: center;
+  margin: 0;
+}
+
+footer {
+  width: 100%;
+  background-color: rgba(255, 255, 255 , 0.33);
+}
+
+/* ------------------------------------------------------------- */
+/* @keyframes bang {
+  from {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+.hoverme {
+  width: 240px;
+  margin:150px auto 0;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  span {
+    color: #333;
+    font-size: .9em;
+  }
+  i {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 8px;
+    background: red;
+    opacity: 0;
+  }
+
 } */

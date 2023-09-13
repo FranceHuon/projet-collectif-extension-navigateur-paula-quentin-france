@@ -67,6 +67,7 @@ main {
   cursor: pointer;
   margin: 0.8em;
   margin-left: 0;
+  margin-right: 0;
   padding: 0.5em;
   background-color: #f2d6de;
   border-color: #f2d6de;
@@ -78,6 +79,7 @@ main {
   cursor: pointer;
   margin: 0.8em;
   margin-right: 0;
+  margin-left: 0;
   padding: 0.5em;
   background-color: #f2d6de;
   border-color: #f2d6de;

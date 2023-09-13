@@ -33,14 +33,6 @@ async function getBirthdays() {
   });
   const data = await response.json(); // constant data includes API data
 
-  let tabData = [];
-
-  for (let i = 0; i < data.length; i++) {
-    tabData.push(data[i]);
-  }
-
-  console.log(tabData);
-
   // variable to have the current month in number
 
   let monthActual = new Date().getMonth() + 1;
@@ -53,16 +45,23 @@ async function getBirthdays() {
     return monthOfBirthday;
   }
 
-  // loop that compares the birthday month for the index "i" and the current month "monthActual"
+  // loop that compares the birthday month for the index "i" and the current month "monthActual"------------ACTUAL--------------------------------
 
   function monthActualBirthday() {
     displayMonth(monthActual);
     let birthdayDiv;
     for (let i = 0; i < data.length; i++) {
       if (getBirthdayMonth(i) === monthActual) {
+        let dateFr = data[i]["birthday"];
+        let dateSplit = dateFr.split("-");
+        let newDate = dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0];
         birthdayDiv = document.createElement("div"); // Create div
         document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-        birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
+        birthdayDiv.innerHTML = data[i]["name"] + " " + newDate; //we write in the div the text with the values that we get out of the loop
+        let current = new Date().toLocaleDateString("fr");
+        if (current === newDate) {
+          alert("C'est l'anniversaire de " + data[i]["name"] + " !");
+        }
       }
     }
     return;
@@ -82,9 +81,12 @@ async function getBirthdays() {
     for (let i = 0; i < data.length; i++) {
       if (getBirthdayMonth(i) === monthActual) {
         counter++;
+        let dateFr = data[i]["birthday"];
+        let dateSplit = dateFr.split("-");
+        let newDate = dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0];
         birthdayDiv = document.createElement("div"); // Create div
         document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-        birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
+        birthdayDiv.innerHTML = data[i]["name"] + " " + newDate; //we write in the div the text with the values that we get out of the loop
       }
     }
     if (counter === 0) {
@@ -114,7 +116,7 @@ async function getBirthdays() {
     return true;
   }
 
-  // ------------------------------------------------------------PREVIOUS---------------------------------------------------------
+  // Fonction pour afficher les anniversaires du mois précédant --------------PREVIOUS---------------------------------------------------------------------
 
   function previousMonthBirthday() {
     let birthdayDiv;
@@ -126,9 +128,12 @@ async function getBirthdays() {
     for (let i = 0; i < data.length; i++) {
       if (getBirthdayMonth(i) === monthActual) {
         counter++;
+        let dateFr = data[i]["birthday"];
+        let dateSplit = dateFr.split("-");
+        let newDate = dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0];
         birthdayDiv = document.createElement("div"); // Create div
         document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-        birthdayDiv.innerHTML = data[i]["name"] + " " + data[i]["birthday"]; //we write in the div the text with the values that we get out of the loop
+        birthdayDiv.innerHTML = data[i]["name"] + " " + newDate; //we write in the div the text with the values that we get out of the loop
       }
     }
     if (counter === 0) {
@@ -194,10 +199,12 @@ async function history() {
   const myJson = await response.json();
 
   let oneObject = myJson[randomId];
+  let event = oneObject["event"];
+  let year = oneObject["year"];
 
-  let test = oneObject["event"];
-
-  document.querySelector("#historicalFact").innerHTML = test;
+  document.querySelector("#historicalFact").innerHTML = event;
+  document.querySelector("#yearH2").innerHTML =
+    "Fait du jour en : " + " " + year;
 }
 
 // fonction pour generer un nombre aléatoire
@@ -245,3 +252,34 @@ history();
 // }
 
 // hoverConfetti();
+
+// async function translation() {
+//   const url =
+//     "https://google-translate1.p.rapidapi.com/language/translate/v2";
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       "content-type": "application/x-www-form-urlencoded",
+//       "Accept-Encoding": "application/gzip",
+//       "X-RapidAPI-Key": "dfe9c37adfmsh370c8103505c689p1ed9a2jsnf5832dfb604e",
+//       "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
+//     },
+//     body: new URLSearchParams({
+//       q: event,
+//       target: "fr",
+//       source: "en",
+//     }),
+//   };
+
+//   try {
+//     const response = await fetch(url, options);
+//     const result = await response.text();
+//     console.log(result);
+//     console.log(result[2]);
+//     document.querySelector("#historicalFact").innerHTML = result;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// translation();

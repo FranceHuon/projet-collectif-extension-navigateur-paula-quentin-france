@@ -81,7 +81,7 @@ async function getBirthdays() {
         let newDate = dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0];
         birthdayDiv = document.createElement("div"); // Create div
         document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-        birthdayDiv.innerHTML = data[i]["name"] + " " + "le" + " "  + newDate; //we write in the div the text with the values that we get out of the loop
+        birthdayDiv.innerHTML = data[i]["name"] + " " + "le" + " " + newDate; //we write in the div the text with the values that we get out of the loop
       }
     }
     if (counter === 0) {
@@ -128,7 +128,7 @@ async function getBirthdays() {
         let newDate = dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0];
         birthdayDiv = document.createElement("div"); // Create div
         document.querySelector("#birthday").appendChild(birthdayDiv); //indicates that the div is the child of the div "birthday"
-        birthdayDiv.innerHTML = data[i]["name"] + " " + "le" + " "  + newDate; //we write in the div the text with the values that we get out of the loop
+        birthdayDiv.innerHTML = data[i]["name"] + " " + "le" + " " + newDate; //we write in the div the text with the values that we get out of the loop
       }
     }
     if (counter === 0) {
@@ -197,7 +197,7 @@ async function history() {
   document.querySelector("#yearH2").innerHTML =
     "Fait du jour en : " + " " + year;
 
-  const apiTranslationKey = "AIzaSyA-_oaEJbo1casPll8g5MApRQ6qYIeJYco";
+  const apiTranslationKey = "#"; // Remplacer # par la nouvelle APIKey Google cloud
   const translationURL =
     "https://translation.googleapis.com/language/translate/v2?key=" +
     apiTranslationKey +
@@ -208,27 +208,26 @@ async function history() {
   async function translation() {
     const response = await fetch(translationURL);
     const myJson2 = await response.json();
-    let toto = myJson2["data"]["translations"][0]["translatedText"];
+    let translatedEvent = myJson2["data"]["translations"][0]["translatedText"];
     document.querySelector("#historicalFact").innerHTML = "";
-    document.querySelector("#historicalFact").innerHTML = toto;
-    console.log(toto);
+    document.querySelector("#historicalFact").innerHTML = translatedEvent;
   }
 
   function runTranslation() {
     let translated = false;
-    document.querySelector("#cliquez").innerHTML = "Traduction"
+    document.querySelector("#cliquez").innerHTML = "Traduction";
     let button = document.querySelector("#translateButton");
     button.addEventListener("click", clickFunction);
     function clickFunction() {
       if (translated === false) {
         // document.querySelector("#historicalFact").innerHTML = "";
-        document.querySelector("#cliquez").innerHTML = "Translation"
+        document.querySelector("#cliquez").innerHTML = "Translation";
         translation();
         translated = true;
       } else {
         document.querySelector("#historicalFact").innerHTML = "";
         document.querySelector("#historicalFact").innerHTML = event;
-        document.querySelector("#cliquez").innerHTML = "Traduction"
+        document.querySelector("#cliquez").innerHTML = "Traduction";
         translated = false;
       }
     }
@@ -243,71 +242,3 @@ function generateRandomId(min, max) {
 }
 
 console.log(history());
-
-// -------------------------------------------------------------------TRANSLATION------------------------------------------------------------
-
-// function hoverConfetti() {
-//   let button = document.getElementById("previous");
-
-//   button.addEventListener("click", function () {
-//     function random(max) {
-//       return Math.random() * (max - 0) + 0;
-//     }
-
-//     var c = document.createDocumentFragment();
-//     for (var i = 0; i < 100; i++) {
-//       var styles =
-//         "transform: translate3d(" +
-//         (random(500) - 250) +
-//         "px, " +
-//         (random(200) - 150) +
-//         "px, 0) rotate(" +
-//         random(360) +
-//         "deg);\
-//                   background: hsla(" +
-//         random(360) +
-//         ",100%,50%,1);\
-//                   animation: bang 700ms ease-out forwards;\
-//                   opacity: 0";
-
-//       var e = document.createElement("i");
-//       e.style.cssText = styles.toString();
-//       c.appendChild(e);
-//     }
-//     document.body.append(c);
-//     // $(this).append(c);
-//   });
-// }
-
-// hoverConfetti();
-
-// async function translation() {
-//   const url =
-//     "https://google-translate1.p.rapidapi.com/language/translate/v2";
-//   const options = {
-//     method: "POST",
-//     headers: {
-//       "content-type": "application/x-www-form-urlencoded",
-//       "Accept-Encoding": "application/gzip",
-//       "X-RapidAPI-Key": "dfe9c37adfmsh370c8103505c689p1ed9a2jsnf5832dfb604e",
-//       "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
-//     },
-//     body: new URLSearchParams({
-//       q: event,
-//       target: "fr",
-//       source: "en",
-//     }),
-//   };
-
-//   try {
-//     const response = await fetch(url, options);
-//     const result = await response.text();
-//     console.log(result);
-//     console.log(result[2]);
-//     document.querySelector("#historicalFact").innerHTML = result;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// translation();

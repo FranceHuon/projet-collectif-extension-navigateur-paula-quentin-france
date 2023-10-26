@@ -1,4 +1,4 @@
-### Projet Extension navigateur - DAY BY DAY
+# Projet Extension navigateur - DAY BY DAY
 
 Dans le cadre d'un projet collectif, nous avons créé une extension qui fonctionne sous forme de module complémentaire avec le navigateur Google Chrome. 
 

@@ -12,7 +12,7 @@ Elle affiche également, et ce, de façon aléatoire, un événement historique 
 
 * Supabase, pour créer notre base de données.
 
-* Deux API : 
+Deux API : 
 - Ninjas pour les évènements historiques. 
 - Google traduction 
 
